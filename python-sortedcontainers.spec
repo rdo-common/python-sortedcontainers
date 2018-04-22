@@ -1,8 +1,8 @@
 %global srcname sortedcontainers
 
 Name:           python-%{srcname}
-Version:        1.5.9
-Release:        2%{?dist}
+Version:        1.5.10
+Release:        1%{?dist}
 Summary:        Pure Python sorted container types
 
 License:        ASL 2.0
@@ -96,18 +96,21 @@ popd
 
 
 %changelog
+* Sun Apr 22 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.5.10-1
+- Update to latest version.
+
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.9-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
-* Fri Dec 08 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> 1.5.9-1
+* Fri Dec 08 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.5.9-1
 - Update to latest version.
 
-* Sun Sep 03 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> 1.5.7-3
+* Sun Sep 03 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.5.7-3
 - Split out documentation subpackage.
 
-* Sat Sep 02 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> 1.5.7-2
+* Sat Sep 02 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.5.7-2
 - Shorten summary and description.
 - Standardize spec a bit more.
 
-* Mon Feb 27 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> 1.5.7-1
+* Mon Feb 27 2017 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.5.7-1
 - Initial package release.

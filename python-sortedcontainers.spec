@@ -1,13 +1,15 @@
 %global srcname sortedcontainers
 
 Name:           python-%{srcname}
-Version:        1.5.10
+Version:        2.0.1
 Release:        1%{?dist}
 Summary:        Pure Python sorted container types
 
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/%{srcname}
 Source0:        https://files.pythonhosted.org/packages/source/s/%{srcname}/%{srcname}-%{version}.tar.gz
+# https://github.com/grantjenks/python-sortedcontainers/issues/91
+Source1:        https://github.com/grantjenks/python-sortedcontainers/raw/master/docs/_templates/gumroad.html
 
 BuildArch:      noarch
 
@@ -22,7 +24,10 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python2-%{srcname}}
 
 BuildRequires:  python2-devel
-BuildRequires:  python2-nose
+BuildRequires:  python2-pytest
+BuildRequires:  python2-matplotlib
+BuildRequires:  python2-numpy
+BuildRequires:  python2-scipy
 
 %description -n python2-%{srcname} %{_description}
 
@@ -32,7 +37,10 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-nose
+BuildRequires:  python3-pytest
+BuildRequires:  python3-matplotlib
+BuildRequires:  python3-numpy
+BuildRequires:  python3-scipy
 BuildRequires:  python3-sphinx
 BuildRequires:  dvipng
 BuildRequires:  tex(anyfontsize.sty)
@@ -50,6 +58,8 @@ Documentation for %{srcname} package.
 
 %prep
 %autosetup -n %{srcname}-%{version}
+mkdir docs/_templates
+cp -a %SOURCE1 docs/_templates/
 
 
 %build
@@ -70,9 +80,9 @@ popd
 %check
 pushd tests
 PYTHONPATH="%{buildroot}%{python2_sitelib}" \
-    nosetests
+    pytest-2
 PYTHONPATH="%{buildroot}%{python3_sitelib}" \
-    nosetests-%{python3_version}
+    pytest-%{python3_version}
 popd
 
 
@@ -96,6 +106,9 @@ popd
 
 
 %changelog
+* Sat May 19 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.1-1
+- Update to latest version.
+
 * Sun Apr 22 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.5.10-1
 - Update to latest version.
 

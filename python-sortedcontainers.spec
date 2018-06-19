@@ -2,7 +2,7 @@
 
 Name:           python-%{srcname}
 Version:        2.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pure Python sorted container types
 
 License:        ASL 2.0
@@ -106,6 +106,9 @@ popd
 
 
 %changelog
+* Tue Jun 19 2018 Miro Hrončok <mhroncok@redhat.com> - 2.0.1-2
+- Rebuilt for Python 3.7
+
 * Sat May 19 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.1-1
 - Update to latest version.
 

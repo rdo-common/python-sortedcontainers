@@ -1,15 +1,14 @@
 %global srcname sortedcontainers
 
 Name:           python-%{srcname}
-Version:        2.0.1
-Release:        3%{?dist}
+Version:        2.0.4
+Release:        1%{?dist}
 Summary:        Pure Python sorted container types
 
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/%{srcname}
-Source0:        https://files.pythonhosted.org/packages/source/s/%{srcname}/%{srcname}-%{version}.tar.gz
-# https://github.com/grantjenks/python-sortedcontainers/issues/91
-Source1:        https://github.com/grantjenks/python-sortedcontainers/raw/master/docs/_templates/gumroad.html
+# PyPI tarball does not include docs or tests.
+Source0:        https://github.com/grantjenks/python-sortedcontainers/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -57,9 +56,7 @@ Documentation for %{srcname} package.
 
 
 %prep
-%autosetup -n %{srcname}-%{version}
-mkdir docs/_templates
-cp -a %SOURCE1 docs/_templates/
+%autosetup
 
 
 %build
@@ -106,6 +103,9 @@ popd
 
 
 %changelog
+* Thu Aug 02 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.4-1
+- Update to latest version.
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 

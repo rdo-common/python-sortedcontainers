@@ -2,7 +2,7 @@
 
 Name:           python-%{srcname}
 Version:        2.0.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pure Python sorted container types
 
 License:        ASL 2.0
@@ -17,19 +17,6 @@ SortedContainers is an Apache2 licensed sorted collections library, written in \
 pure-Python, and fast as C-extensions.
 
 %description %{_description}
-
-%package -n python2-%{srcname}
-Summary:        %{summary}
-%{?python_provide:%python_provide python2-%{srcname}}
-
-BuildRequires:  python2-devel
-BuildRequires:  python2-pytest
-BuildRequires:  python2-matplotlib
-BuildRequires:  python2-numpy
-BuildRequires:  python2-scipy
-
-%description -n python2-%{srcname} %{_description}
-
 
 %package -n python3-%{srcname}
 Summary:        %{summary}
@@ -60,7 +47,6 @@ Documentation for %{srcname} package.
 
 
 %build
-%py2_build
 %py3_build
 
 pushd docs
@@ -70,24 +56,14 @@ popd
 
 
 %install
-%py2_install
 %py3_install
 
 
 %check
 pushd tests
-PYTHONPATH="%{buildroot}%{python2_sitelib}" \
-    pytest-2
 PYTHONPATH="%{buildroot}%{python3_sitelib}" \
     pytest-%{python3_version}
 popd
-
-
-%files -n python2-%{srcname}
-%license LICENSE
-%doc README.rst
-%{python2_sitelib}/%{srcname}
-%{python2_sitelib}/%{srcname}-%{version}-py?.?.egg-info
 
 
 %files -n python3-%{srcname}
@@ -103,6 +79,9 @@ popd
 
 
 %changelog
+* Wed Oct 03 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.4-2
+- Drop Python 2 subpackage.
+
 * Thu Aug 02 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.4-1
 - Update to latest version.
 

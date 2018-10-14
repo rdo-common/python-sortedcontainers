@@ -1,7 +1,7 @@
 %global srcname sortedcontainers
 
 Name:           python-%{srcname}
-Version:        2.0.4
+Version:        2.0.5
 Release:        1%{?dist}
 Summary:        Pure Python sorted container types
 
@@ -103,6 +103,9 @@ popd
 
 
 %changelog
+* Sat Oct 13 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.5-1
+- Update to latest version
+
 * Thu Aug 02 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.4-1
 - Update to latest version.
 

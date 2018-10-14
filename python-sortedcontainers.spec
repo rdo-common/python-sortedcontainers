@@ -1,8 +1,8 @@
 %global srcname sortedcontainers
 
 Name:           python-%{srcname}
-Version:        2.0.4
-Release:        2%{?dist}
+Version:        2.0.5
+Release:        1%{?dist}
 Summary:        Pure Python sorted container types
 
 License:        ASL 2.0
@@ -79,6 +79,9 @@ popd
 
 
 %changelog
+* Sat Oct 13 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.5-1
+- Update to latest version
+
 * Wed Oct 03 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.4-2
 - Drop Python 2 subpackage.
 

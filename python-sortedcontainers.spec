@@ -2,7 +2,7 @@
 
 Name:           python-%{srcname}
 Version:        2.1.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Pure Python sorted container types
 
 License:        ASL 2.0
@@ -79,6 +79,9 @@ popd
 
 
 %changelog
+* Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.1.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Thu Oct 03 2019 Miro Hrončok <mhroncok@redhat.com> - 2.1.0-5
 - Rebuilt for Python 3.8.0rc1 (#1748018)
 

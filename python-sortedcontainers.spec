@@ -1,3 +1,6 @@
+%{?python_enable_dependency_generator}
+%bcond_with tests
+
 %global srcname sortedcontainers
 
 Name:           python-%{srcname}
@@ -23,10 +26,12 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 
 BuildRequires:  python3-devel
+%if %{with tests}
 BuildRequires:  python3-pytest
 BuildRequires:  python3-matplotlib
 BuildRequires:  python3-numpy
 BuildRequires:  python3-scipy
+%endif
 BuildRequires:  python3-sphinx
 BuildRequires:  dvipng
 BuildRequires:  tex(anyfontsize.sty)
@@ -60,10 +65,12 @@ popd
 
 
 %check
+%if %{with tests}
 pushd tests
 PYTHONPATH="%{buildroot}%{python3_sitelib}" \
     pytest-%{python3_version}
 popd
+%endif
 
 
 %files -n python3-%{srcname}
